@@ -1,0 +1,13 @@
+body {
+  margin: 0 auto;
+  font-family: 'Righteous', cursive;;
+  background-color: #f0f0f0;
+}
+.app {
+  background-color: gray;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+}
