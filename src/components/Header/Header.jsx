@@ -24,10 +24,10 @@ const Header = () => {
             <img src={AVATAR} alt="avatar" />
           </div>
         </div>
-        <div className={styles.userInfo}>
-          <div className={styles.userName}>
+        <div className={styles.userName}>
             UserName
-          </div>
+        </div>
+        <div className={styles.userInfo}>
           <form className={styles.form}>
             <div className={styles.icon}>
               <SearchIcon />
