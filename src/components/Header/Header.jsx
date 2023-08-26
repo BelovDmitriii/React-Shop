@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import {ROUTES} from '../../utils/routes';
 import LOGO from '../../images/logo.png';
 import AVATAR from '../../images/avatar.png';
-import { SearchIcon } from '../../Icons/SearchIcon';
 import styles from '../../styles/Header.module.css';
+import SearchIcon from '../Icons/SearchIcon';
+import LikeIcon from '../Icons/Like';
+import CartIcon from '../Icons/cart';
 
 const Header = () => {
   return(
@@ -40,7 +42,17 @@ const Header = () => {
                 value=""
               />
             </div>
+            <div className={styles.box}></div>
           </form>
+          <div className={styles.account}>
+            <Link to={ROUTES.HOME}>
+              <LikeIcon />
+            </Link>
+            <Link to={ROUTES.CART} className={styles.cart}>
+              <CartIcon />
+              <span className={styles.count}>15</span>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

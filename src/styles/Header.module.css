@@ -5,8 +5,9 @@
 }
 
 .logo img{
-  width: 100px;
+  width: 150px;
   height: 100px;
+  margin: 20px;
 }
 
 .mainInfo {
@@ -31,11 +32,33 @@
 .userName {
   margin-right: 20px;
   margin-bottom: 20px;
+  text-align: end;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(84, 83, 83, 0.695);
+  border-radius: 10px;
+  background-color: rgb(181, 178, 178);
+  padding: 5px;
 }
 
 .input input{
-  border: 1px solid gray;
-  border-radius: 5px;
-  background-color: aqua;
+  background-color:  rgb(181, 178, 178);
   padding: 5px;
+  border: none;
+}
+
+.account {
+  display: flex;
+  justify-content: space-around;
+}
+
+.cart {
+  text-decoration: none;
+}
+
+.count {
+  color: black;
 }
