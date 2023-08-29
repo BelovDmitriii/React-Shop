@@ -6,7 +6,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Sidebar = () => {
   const { list } = useSelector(({categories}) => categories);
-  console.log('list', list);
 
   return(
     <section className={styles.sidebar}>
