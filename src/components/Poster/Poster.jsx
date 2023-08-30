@@ -10,13 +10,12 @@ const Poster = () => {
       </div>
       <div className={styles.product}>
         <div className={styles.text}>
-        
+          <div className={styles.subtitle}>
+            the best seller of 2023
+          </div>
+          <h1 className={styles.head}>SOME PRODUCT</h1>
+          <button className={styles.button}>Buy NOW</button>
         </div>
-        <div className={styles.subtitle}>
-          the best seller of 2023
-        </div>
-        <h1 className={styles.head}>SOME PRODUCT</h1>
-        <button className={styles.button}>Buy NOW</button>
         <div className={styles.image}>
           <img src={IMG} alt="product" />
         </div>

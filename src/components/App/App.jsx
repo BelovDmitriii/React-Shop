@@ -4,15 +4,16 @@ import AppRoutes from '../Routes/Routes';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Sidebar from '../Sidebar/Sidebar';
-import Home from '../Home/Home';
 import styles from '../../styles/App.module.css';
 import { getCategories } from '../../features/categories/categoriesSlice';
+import { getProducts } from '../../features/products/productsSlice';
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getCategories());
+    dispatch(getProducts());
   }, [dispatch]);
 
   return(
@@ -20,7 +21,6 @@ const App = () => {
       <Header />
       <div className={styles.container}>
         <Sidebar />
-        <Home />
         <AppRoutes />
       </div>
       <Footer />

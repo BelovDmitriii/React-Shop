@@ -9,8 +9,17 @@ body {
   min-height: 100%;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  width: 1274px;
+  margin: 0 auto;
+}
+
 .container {
   display: flex;
-  height: 100%;
-  width: 100%;
+  flex-wrap: wrap;
+  gap: 20px;
 }

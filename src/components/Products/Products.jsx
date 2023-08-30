@@ -2,7 +2,8 @@ import React from 'react';
 import styles from '../../styles/Products.module.css';
 import { Link } from 'react-router-dom';
 
-const Products = ({title, style={}, products=[]}, amount) => {
+const Products = ({title, style={}, products=[], amount}) => {
+  
 const list = products.filter((_,i) => i < amount);
 
   return(
@@ -11,10 +12,9 @@ const list = products.filter((_,i) => i < amount);
       <div className={styles.productsList}>
         {list.map(({ id, image, title, category: {name: cat}, price}) => (
           <Link to={`/${id}`} key={id} className={styles.productItem}>
-            <div 
-              className={styles.image}
-              style={{backgroundImage: `url(${image})`}}
-            />
+            <div className={styles.image}>
+              <img src={image} alt="item_photo" style={{width:"70px", height:"70px"}}/>
+            </div>
             <div className={styles.wrapper}>
               <h3 className={styles.title}>{title}</h3>
               <div className={styles.category}>{cat}</div>

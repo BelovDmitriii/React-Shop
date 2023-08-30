@@ -1,0 +1,27 @@
+.container {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.container h2 {
+  text-align: center;
+}
+
+.productsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+}
+
+.productItem {
+  width: 23%;
+  background-color: chartreuse;
+  color:cadetblue;
+  text-decoration: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+  display: flex;
+  padding: 10px;
+}
