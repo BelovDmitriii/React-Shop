@@ -21,10 +21,10 @@ const list = products.filter((_,i) => i < amount);
               <div className={styles.info}>
                 <div className={styles.prices}>
                   <div className={styles.price}>
-                    {price}$
+                    Price: {price}$
                   </div>
                   <div className={styles.oldPrice}>
-                    {Math.floor(price * 0.8)}$
+                    Old Price: {Math.floor(price * 0.9)}$
                   </div>
                 </div>
               </div>

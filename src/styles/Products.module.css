@@ -20,8 +20,17 @@
   background-color: chartreuse;
   color:cadetblue;
   text-decoration: none;
-  border: 1px solid gray;
+  border: none;
   border-radius: 5px;
   display: flex;
   padding: 10px;
+  box-shadow: 0px 5px 16px 0px rgba(0, 0, 0, 0.5);
+}
+
+.image img {
+  transition: 1s;
+}
+
+.image img:hover {
+  transform: scale(1.2);
 }
