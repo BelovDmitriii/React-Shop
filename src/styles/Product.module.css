@@ -17,8 +17,8 @@
   gap: 20px;
 }
 
-img {
-  width: 100%;
+.images img {
+  max-width: 200px;
   max-height: 300px;
   border-radius: 10px;
 }
@@ -97,7 +97,7 @@ img {
 
 .size:hover,
 .size.active {
-  background: var(--violet);
+  background: green;
 }
 
 .description {
@@ -110,16 +110,19 @@ img {
 .actions {
   margin-top: 12px;
   display: flex;
-  column-gap: 10px;
+  column-gap: 35px;
 }
 
-.favourite {
-  background: var(--dark-sea);
+.favourite, .add {
+  background: darkseagreen;
   border-radius: 6px;
+  padding: 7px;
+  font-size: 16px;
 }
 
-.favourite:hover {
+.favourite:hover, .add:hover {
   background: #7a8690;
+  color:aqua
 }
 
 .bottom {
@@ -134,7 +137,7 @@ img {
 
 .add:disabled {
   cursor: not-allowed;
-  background: var(--bg);
+  background: rgb(251, 157, 173);
 }
 
 .link {
