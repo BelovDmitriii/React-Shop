@@ -27,7 +27,7 @@ const productsSlice = createSlice({
       state.filtered = state.list.filter(({ price }) => price < payload)
     },
     getRelatedProducts: (state, {payload}) => {
-      const list = state.list.filter(({category: { category }}) => category === payload)
+      const list = state.list.filter(({category}) => category === payload)
       state.related = list;
     }
   },

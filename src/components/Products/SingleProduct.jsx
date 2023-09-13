@@ -23,6 +23,7 @@ function SingleProduct() {
   },[isLoading, isFetching, isSuccess]);
 
   useEffect(() => {
+    console.log(data);
     if(data){
       dispatch(getRelatedProducts(data.category));
     }
