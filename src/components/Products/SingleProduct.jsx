@@ -3,10 +3,16 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useGetProductQuery } from '../../features/api/apiSlice';
 import { ROUTES } from '../../utils/routes';
 import Product from './Product';
+import Products from './Products';
+import { useDispatch, useSelector } from 'react-redux';
+import { getRelatedProducts } from '../../features/products/productsSlice';
 
 function SingleProduct() {
+  const dispatch = useDispatch();
   const { id } = useParams();
   const navigate = useNavigate();
+  const { related } = useSelector(({ products }) => products);
+
   const { data, isLoading, isFetching, isSuccess } = useGetProductQuery({id});
 
   useEffect(() => {
@@ -16,6 +22,13 @@ function SingleProduct() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[isLoading, isFetching, isSuccess]);
 
+  useEffect(() => {
+    if(data){
+      dispatch(getRelatedProducts(data.category));
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
+
   return (
     !data ? (
       <section className="preloader">
@@ -24,6 +37,7 @@ function SingleProduct() {
     ) : (
       <>
         <Product {...data} />
+        <Products products={related} amount={4} title="Related products"/>
       </>
     )
   )
