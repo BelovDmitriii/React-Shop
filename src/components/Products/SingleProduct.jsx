@@ -11,7 +11,7 @@ function SingleProduct() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const navigate = useNavigate();
-  const { related } = useSelector(({ products }) => products);
+  const { list, related } = useSelector(({ products }) => products);
 
   const { data, isLoading, isFetching, isSuccess } = useGetProductQuery({id});
 
@@ -23,12 +23,14 @@ function SingleProduct() {
   },[isLoading, isFetching, isSuccess]);
 
   useEffect(() => {
-    console.log(data);
+    if(!data || !list.length){
+      return
+    }
     if(data){
       dispatch(getRelatedProducts(data.category));
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
+  }, [data, dispatch, list.length]);
 
   return (
     !data ? (
