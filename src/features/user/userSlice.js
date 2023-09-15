@@ -19,6 +19,7 @@ const userSlice = createSlice({
   initialState: {
     currentUser: [],
     cart: [],
+    favourite: [],
     isLoading: false,
   },
   reducers: {
@@ -36,8 +37,24 @@ const userSlice = createSlice({
       }
 
       state.cart = newCart;
+    },
+    addItemToFavourite: (state, {payload}) => {
+      let newFavourites = [...state.favourite];
+      const found = state.favourite.find(({ id }) => id === payload.id)
+      if(found){
+        newFavourites = newFavourites.map((item) => {
+          return item.id === payload.id
+          ? {...item, quantity: payload.quantity || item.quantity + 1 }
+          : item;
+        })
+      } else {
+        newFavourites.push({...payload, quantity: 1});
+      }
+
+      state.favourite = newFavourites;
     }
   },
+  
   extraReducers: (builder) => {
     // builder.addCase(getCategories.pending, (state) => {
     //   state.isLoading = true;
@@ -53,5 +70,6 @@ const userSlice = createSlice({
 })
 
 export const { addItemToCart } = userSlice.actions;
+export const { addItemToFavourite } = userSlice.actions;
 
 export default userSlice.reducer;

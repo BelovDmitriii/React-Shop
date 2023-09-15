@@ -3,7 +3,7 @@ import styles from '../../styles/Product.module.css';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../utils/routes';
 import { useDispatch } from 'react-redux';
-import { addItemToCart } from '../../features/user/userSlice';
+import { addItemToCart, addItemToFavourite } from '../../features/user/userSlice';
 
 
 const Product = (item) => {
@@ -17,6 +17,10 @@ const Product = (item) => {
 
   const addToCart = () => {
     dispatch(addItemToCart(item));
+  }
+
+  const addToFavourite = () => {
+    dispatch(addItemToFavourite(item));
   }
 
   return (
@@ -55,7 +59,7 @@ const Product = (item) => {
 
         <div className={styles.actions}>
           <button onClick={addToCart} className={styles.add} disabled={!currentSize}>Add to cart</button>
-          <button className={styles.favourite}>Add to favourites</button>
+          <button onClick={addToFavourite} className={styles.favourite}>Add to favourites</button>
         </div>
 
         <div className={styles.bottom}>
