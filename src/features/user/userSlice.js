@@ -21,6 +21,8 @@ const userSlice = createSlice({
     cart: [],
     favourite: [],
     isLoading: false,
+    formType: 'signup',
+    showForm: false,
   },
   reducers: {
     addItemToCart: (state, {payload}) => {
@@ -52,6 +54,9 @@ const userSlice = createSlice({
       }
 
       state.favourite = newFavourites;
+    },
+    toggleForm: (state, {payload}) => {
+      state.showForm = payload;
     }
   },
   
@@ -68,7 +73,6 @@ const userSlice = createSlice({
   }
 })
 
-export const { addItemToCart } = userSlice.actions;
-export const { addItemToFavourite } = userSlice.actions;
+export const { addItemToCart, addItemToFavourite, toggleForm } = userSlice.actions;
 
 export default userSlice.reducer;
