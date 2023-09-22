@@ -7,6 +7,8 @@ import Sidebar from '../Sidebar/Sidebar';
 import styles from '../../styles/App.module.css';
 import { getCategories } from '../../features/categories/categoriesSlice';
 import { getProducts } from '../../features/products/productsSlice';
+import UserForm from '../User/UserForm';
+
 
 const App = () => {
   const dispatch = useDispatch();
@@ -19,6 +21,7 @@ const App = () => {
   return(
     <div className={styles.app}>
       <Header />
+      <UserForm />
       <div className={styles.container}>
         <Sidebar />
         <AppRoutes />

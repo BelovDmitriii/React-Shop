@@ -7,7 +7,6 @@ const UserLoginForm = () => {
     name: '',
     email: '',
     password: '',
-    avatar: '',
   });
 
   const handleChange = ({ target: {value, name} }) => {
@@ -47,15 +46,6 @@ const UserLoginForm = () => {
             name='password'
             value={values.password}
             placeholder='Your password'
-            autoComplete='off'
-            onChange={handleChange}
-            required
-          />
-          <input  
-            type="avatar"
-            name='avatar'
-            value={values.avatar}
-            placeholder='Your avatar'
             autoComplete='off'
             onChange={handleChange}
             required

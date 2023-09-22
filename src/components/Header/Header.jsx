@@ -12,7 +12,8 @@ import { toggleForm } from '../../features/user/userSlice';
 
 const Header = () => {
   const dispatch = useDispatch();
-  const {currentUser} = useSelector(({ user }) => user )
+  const {currentUser} = useSelector((user) => user );
+  console.log(currentUser);
 
   const handleClick = () => {
     if(!currentUser){
