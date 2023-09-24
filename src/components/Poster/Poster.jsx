@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../../styles/Poster.module.css';
-import IMG from '../../images/poster.jpg';
+import IMG from '../../images/nike.png';
 
 const Poster = () => {
   return(
@@ -13,7 +13,7 @@ const Poster = () => {
           <div className={styles.subtitle}>
             the best seller of 2023
           </div>
-          <h1 className={styles.head}>SOME PRODUCT</h1>
+          <h1 className={styles.head}>NIKE AIR</h1>
           <button className={styles.button}>Buy NOW</button>
         </div>
         <div className={styles.image}>

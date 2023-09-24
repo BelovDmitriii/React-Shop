@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from '../../styles/UserLoginForm.module.css';
 import btnSrc from '../../images/closeBtn.png';
 
-const UserLoginForm = () => {
+const UserLoginForm = ({closeForm}) => {
   const [values, setValues] = useState({
     name: '',
     email: '',
@@ -15,7 +15,7 @@ const UserLoginForm = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.close}>
+      <div className={styles.close} onClick={closeForm}>
         <img src={btnSrc} alt="close" />
       </div>
       <div className={styles.title}>

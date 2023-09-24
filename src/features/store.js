@@ -8,7 +8,7 @@ export const store = configureStore({
   reducer: {
     categories: categoriesSlice,
     products: productsSlice,
-    userL: userSlice,
+    user: userSlice,
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
   middleware: (getMiddleware) => getMiddleware().concat(apiSlice.middleware),

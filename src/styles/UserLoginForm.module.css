@@ -41,11 +41,22 @@
   border-radius: 8px;
   color: lightgray;
   padding: 12px 24px;
+  margin-bottom: 5px;
+}
+
+.group input:focus {
+  background-color: gold;
 }
 
 .submit {
   font-weight: 500;
   line-height: 20px;
+  color: #000;
+}
+
+.submit:hover {
+  color: gold;
+  cursor: pointer;
 }
 
 .close {
@@ -67,7 +78,7 @@
 
 .link {
   font-size: 13px;
-  color: blueviolet;
+  color: #000;
   cursor: pointer;
   text-align: center;
 }
