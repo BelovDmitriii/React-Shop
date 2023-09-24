@@ -7,7 +7,6 @@ import { toggleForm } from '../../features/user/userSlice';
 const UserForm = () => {
   const dispatch = useDispatch();
   const {showForm} = useSelector(({ user }) => user);
-  console.log(showForm);
   const closeForm = () => dispatch(toggleForm(false));
 
   return (
