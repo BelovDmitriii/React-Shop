@@ -2,10 +2,11 @@ import React from 'react';
 import styles from '../../styles/Sidebar.module.css';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuid } from 'uuid';
 import logo from '../../images/favourite.png';
 
 const Sidebar = () => {
+  const newUuid = uuid();
   const { list } = useSelector(({categories}) => categories);
   
   return(
@@ -20,7 +21,7 @@ const Sidebar = () => {
               className={({isActive}) => `${styles.link} ${isActive ? styles.activated : ""}`}
               to={`/category/${category}`}
               style={{textDecoration:"none"}}>
-              <li key={uuidv4()}>
+              <li key={newUuid}>
                 {category}
               </li>
             </NavLink>

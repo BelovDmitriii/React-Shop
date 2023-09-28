@@ -3,7 +3,7 @@
   background-size: cover;
   position: relative;
   flex-grow: 1;
-  height: 55vh;
+  height: 23em;
 }
 
 .title {
@@ -15,6 +15,38 @@
   text-shadow: 4px 0 8px #000;
   text-align: center;
 }
+
+@-webkit-keyframes blink6 {
+  10% { transform: scale(1, 1) rotate(80deg); }
+  20% { transform: scale(0, 0) rotate(160deg); }
+  100% { transform: scale(0, 0) rotate(0deg); }
+ }
+ @keyframes blink6 {
+  10% { transform: scale(1, 1) rotate(80deg); }
+  20% { transform: scale(0, 0) rotate(160deg); }
+  100% { transform: scale(0, 0) rotate(0deg); }
+ }
+
+ .title:after, .title:before {
+   content: "";
+   position: absolute; top: 14%; left: 20%;
+   display: block;
+   width: 100px;
+   height: 100px;
+   background-image: 
+     radial-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 30%),
+     linear-gradient(45deg, rgba(0,0,0,0) 49%, rgba(255,255,255,.4) 50%, rgba(0,0,0,0) 51%),
+     linear-gradient(135deg, rgba(0,0,0,0) 49%, rgba(255,255,255,.4) 50%, rgba(0,0,0,0) 51%);
+   -webkit-animation: blink6 2s linear infinite;
+   animation: blink6 10s linear infinite;
+   transform: scale(0, 0) rotate(0deg);
+ }
+ .title:before {
+   top: -3%;
+   right: 20%; left: auto;
+   -webkit-animation-delay: 5s;
+   animation-delay: 5s;
+ }
 
 .product {
   position: relative;
