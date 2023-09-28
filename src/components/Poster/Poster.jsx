@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../../styles/Poster.module.css';
-import IMG from '../../images/nike.png';
-import IMG2 from '../../images/nike2.png';
-import IMG3 from '../../images/nike3.png';
-import IMG4 from '../../images/nike4.png';
+import { images } from '../../utils/consts';
 
 const Poster = () => {
-  const images = [IMG, IMG2, IMG3, IMG4];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -14,7 +10,7 @@ const Poster = () => {
       setCurrentIndex(currentIndex => (currentIndex + 1) % images.length)
     }, 5000);
     return () => clearInterval(interval)
-  }, [images.length] )
+  }, [] )
 
   return(
     <section className={styles.poster}>
