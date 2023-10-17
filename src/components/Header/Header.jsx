@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {ROUTES} from '../../utils/routes';
 import LOGO from '../../images/logo.png';
@@ -14,11 +14,19 @@ const Header = () => {
   const dispatch = useDispatch();
   const {currentUser} = useSelector(({ user }) => user );
 
+  const[values, setValues] = useState({ name: "Guest" });
+
+  useEffect(() => {
+    if(!currentUser) return;
+
+    setValues(currentUser);
+  }, [currentUser]);
+
   const handleClick = () => {
     if(!currentUser){
       dispatch(toggleForm(true));
     }
-  }
+ };
 
   return(
     <div className={styles.header}>
@@ -36,7 +44,7 @@ const Header = () => {
           </div>
         </div>
         <div className={styles.userName}>
-            UserName
+            {values.name}
         </div>
         <div className={styles.userInfo}>
           <form className={styles.form}>

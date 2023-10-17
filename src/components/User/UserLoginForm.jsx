@@ -1,16 +1,30 @@
 import React, { useState } from 'react'
 import styles from '../../styles/UserLoginForm.module.css';
 import btnSrc from '../../images/closeBtn.png';
+import { useDispatch } from 'react-redux';
+import { createUser } from '../../features/user/userSlice';
 
 const UserLoginForm = ({closeForm}) => {
+  const dispatch = useDispatch();
+
   const [values, setValues] = useState({
-    name: '',
+    username: '',
     email: '',
     password: '',
   });
 
   const handleChange = ({ target: {value, name} }) => {
     setValues({...values, [name]: value });
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const isEmpty = Object.values(values).some((value) => !value);
+
+    if(isEmpty) return;
+
+    dispatch(createUser(values));
+    closeForm();
   }
 
   return (
@@ -21,7 +35,7 @@ const UserLoginForm = ({closeForm}) => {
       <div className={styles.title}>
         Sign Up
       </div>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.group}>
           <input  
             type="email"
@@ -34,8 +48,8 @@ const UserLoginForm = ({closeForm}) => {
           />
           <input  
             type="name"
-            name='name'
-            value={values.name}
+            name='username'
+            value={values.username}
             placeholder='Your name'
             autoComplete='off'
             onChange={handleChange}
