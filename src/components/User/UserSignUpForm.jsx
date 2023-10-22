@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import styles from '../../styles/UserSignUpForm.module.css';
 import btnSrc from '../../images/closeBtn.png';
 import { useDispatch } from 'react-redux';
-import { loginUser } from '../../features/user/userSlice';
+import { createUser } from '../../features/user/userSlice';
 
-const UserLoginForm = ({closeForm, toggleCurrentFormType}) => {
+const UserSignUpForm = ({closeForm, toggleCurrentFormType}) => {
   const dispatch = useDispatch();
 
   const [values, setValues] = useState({
+    username: '',
     email: '',
     password: '',
   });
@@ -22,7 +23,7 @@ const UserLoginForm = ({closeForm, toggleCurrentFormType}) => {
 
     if(!isNotEmpty) return;
 
-    dispatch(loginUser(values));
+    dispatch(createUser(values));
     closeForm();
   }
 
@@ -32,7 +33,7 @@ const UserLoginForm = ({closeForm, toggleCurrentFormType}) => {
         <img src={btnSrc} alt="close" />
       </div>
       <div className={styles.title}>
-        LogIn
+        Sign Up
       </div>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.group}>
@@ -41,6 +42,15 @@ const UserLoginForm = ({closeForm, toggleCurrentFormType}) => {
             name='email'
             value={values.email}
             placeholder='Your email'
+            autoComplete='off'
+            onChange={handleChange}
+            required
+          />
+          <input  
+            type="name"
+            name='username'
+            value={values.username}
+            placeholder='Your name'
             autoComplete='off'
             onChange={handleChange}
             required
@@ -56,15 +66,15 @@ const UserLoginForm = ({closeForm, toggleCurrentFormType}) => {
           />
         </div>
 
-        <div className={styles.link} onClick={() => toggleCurrentFormType('signup')}>
-          Create ACCOUNT
+        <div className={styles.link} onClick={() => toggleCurrentFormType('login')}>
+          I already have an account
         </div>
         <button className={styles.submit} type='submit'>
-          Login
+          Create ACCOUNT
         </button>
       </form>
     </div>
   )
 }
 
-export default UserLoginForm
+export default UserSignUpForm

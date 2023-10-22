@@ -1,46 +1,50 @@
-import React, { useState } from 'react'
-import styles from '../../styles/UserSignUpForm.module.css';
-import btnSrc from '../../images/closeBtn.png';
-import { useDispatch } from 'react-redux';
-import { loginUser } from '../../features/user/userSlice';
+import React, { useState } from 'react';
+import styles from '../../styles/Profile.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateUser } from '../../features/user/userSlice';
 
-const UserLoginForm = ({closeForm, toggleCurrentFormType}) => {
+const Profile = () => {
   const dispatch = useDispatch();
+  const {currentUser} = useSelector(({user}) => user);
 
   const [values, setValues] = useState({
+    username: '',
     email: '',
     password: '',
   });
 
-  const handleChange = ({ target: {value, name} }) => {
-    setValues({...values, [name]: value });
-  }
-
+  const handleChange = ({ target: {value, name }}) => {
+    setValues({...values, [name]: value})
+  } 
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const isNotEmpty = Object.values(values).every((value) => value);
 
     if(!isNotEmpty) return;
 
-    dispatch(loginUser(values));
-    closeForm();
+    dispatch(updateUser(values));
   }
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.close} onClick={closeForm}>
-        <img src={btnSrc} alt="close" />
-      </div>
-      <div className={styles.title}>
-        LogIn
-      </div>
-      <form className={styles.form} onSubmit={handleSubmit}>
+    <div className={styles.profile}>
+      {!currentUser ? <span>You need to log in</span> : (
+        <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.group}>
           <input  
             type="email"
             name='email'
             value={values.email}
             placeholder='Your email'
+            autoComplete='off'
+            onChange={handleChange}
+            required
+          />
+          <input  
+            type="name"
+            name='username'
+            value={values.username}
+            placeholder='Your name'
             autoComplete='off'
             onChange={handleChange}
             required
@@ -56,15 +60,13 @@ const UserLoginForm = ({closeForm, toggleCurrentFormType}) => {
           />
         </div>
 
-        <div className={styles.link} onClick={() => toggleCurrentFormType('signup')}>
-          Create ACCOUNT
-        </div>
         <button className={styles.submit} type='submit'>
-          Login
+          Update
         </button>
       </form>
+      )}
     </div>
   )
 }
 
-export default UserLoginForm
+export default Profile
