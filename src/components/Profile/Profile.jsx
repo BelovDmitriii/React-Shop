@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../../styles/Profile.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUser } from '../../features/user/userSlice';
@@ -25,6 +25,12 @@ const Profile = () => {
 
     dispatch(updateUser(values));
   }
+
+  useEffect(() => {
+    if(!currentUser) return;
+
+    setValues(currentUser);
+  },[currentUser]);
 
   return (
     <div className={styles.profile}>
